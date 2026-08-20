@@ -13,9 +13,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   
-  <!-- Nạp thư viện AI Vision chạy Offline trên trình duyệt -->
-  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest/dist/tf.min.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@latest"></script>
+  <!-- TensorFlow.js & MobileNet -->
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.20.0/dist/tf.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/mobilenet@2.1.1/dist/mobilenet.min.js"></script>
 
   <style>
     :root{
@@ -333,55 +333,53 @@ document.getElementById('galleryBtn').addEventListener('click', ()=> galleryInpu
 cameraInput.addEventListener('change', (e)=> handleFile(e.target.files[0]));
 galleryInput.addEventListener('change', (e)=> handleFile(e.target.files[0]));
 
-// Biến lưu trữ model TF
 let aiModel = null;
-
-async function loadAIModel() {
+async function getModel() {
   if (!aiModel) {
-    aiModel = await mobilenet.load();
+    aiModel = await mobilenet.load({ version: 2, alpha: 0.5 });
   }
   return aiModel;
 }
 
 function convertLabelToSpecimen(label) {
-  const l = label.toLowerCase();
+  const l = (label || '').toLowerCase();
   
-  if (l.includes('cat') || l.includes('tabby') || l.includes('feline') || l.includes('siamese') || l.includes('persian') || l.includes('egyptian')) {
+  if (l.includes('cat') || l.includes('tabby') || l.includes('feline') || l.includes('siamese') || l.includes('persian') || l.includes('egyptian') || l.includes('lynx')) {
     return {
       found: true,
       commonName: "Mèo Nhà (Felis catus)",
       scientificName: "Felis catus",
       category: "Thú",
       rarity: "Phổ biến",
-      habitat: "Khu dân cư, nhà ở khắp nơi",
-      description: "Loài thú ăn thịt nhỏ được nuôi phổ biến nhất trong các hộ gia đình, nổi tiếng với sự nhanh nhẹn.",
-      funFact: "Mèo có thể xoay đôi tai của mình tới 180 độ để định vị âm thanh.",
+      habitat: "Nhà ở, khu dân cư, nông trại",
+      description: "Loài thú ăn thịt nhỏ được nuôi phổ biến nhất, sở hữu móng vuốt linh hoạt và giác quan cực kỳ nhạy bén.",
+      funFact: "Mèo dành khoảng 70% thời gian trong ngày để ngủ và có thể nghe được âm thanh siêu âm.",
       conservationStatus: "Thuần hóa"
     };
   }
-  if (l.includes('dog') || l.includes('hound') || l.includes('terrier') || l.includes('retriever') || l.includes('poodle') || l.includes('pug') || l.includes('canine') || l.includes('chihuahua') || l.includes('corgi')) {
+  if (l.includes('dog') || l.includes('hound') || l.includes('terrier') || l.includes('retriever') || l.includes('poodle') || l.includes('pug') || l.includes('canine') || l.includes('chihuahua') || l.includes('corgi') || l.includes('husky') || l.includes('shepherd')) {
     return {
       found: true,
       commonName: "Chó Nhà (Canis familiaris)",
       scientificName: "Canis lupus familiaris",
       category: "Thú",
       rarity: "Phổ biến",
-      habitat: "Nhà ở, trang trại",
-      description: "Loài động vật gắn bó thân thiết nhất với con người, sở hữu trí thông minh và lòng trung thành cao.",
-      funFact: "Dấu mũi của mỗi chú chó là độc nhất vô nhị, tương tự như vân tay của con người.",
+      habitat: "Sống cùng con người khắp toàn cầu",
+      description: "Loài động vật thông minh, trung thành với khả năng đánh hơi và thính giác vượt trội.",
+      funFact: "Khứu giác của loài chó nhạy gấp từ 10.000 đến 100.000 lần so với con người.",
       conservationStatus: "Thuần hóa"
     };
   }
-  if (l.includes('bird') || l.includes('sparrow') || l.includes('robin') || l.includes('parrot') || l.includes('eagle') || l.includes('owl') || l.includes('cockatoo') || l.includes('jay')) {
+  if (l.includes('bird') || l.includes('sparrow') || l.includes('robin') || l.includes('parrot') || l.includes('eagle') || l.includes('owl') || l.includes('cockatoo') || l.includes('jay') || l.includes('finch') || l.includes('woodpecker')) {
     return {
       found: true,
       commonName: "Chim Hoang Dã",
       scientificName: "Aves",
       category: "Chim",
       rarity: "Không thường gặp",
-      habitat: "Tán cây, vườn cây, rừng núi",
-      description: "Động vật có cánh sở hữu bộ lông vũ thích nghi xuất sắc với bầu trời.",
-      funFact: "Xương của loài chim rỗng giúp chúng giảm tối đa trọng lượng khi cất cánh.",
+      habitat: "Tán cây, vườn cây đô thị và rừng",
+      description: "Động vật có cánh sở hữu bộ lông vũ thích nghi hoàn hảo cho khả năng bay lượn.",
+      funFact: "Cấu trúc xương xốp và rỗng bên trong giúp giảm đáng kể trọng lượng của chim khi bay.",
       conservationStatus: "Ít quan tâm (LC)"
     };
   }
@@ -393,25 +391,25 @@ function convertLabelToSpecimen(label) {
       category: "Côn trùng",
       rarity: "Hiếm",
       habitat: "Vườn hoa và rừng nhiệt đới",
-      description: "Loài côn trùng có đôi cánh rực rỡ sắc màu cùng chiếc vòi hút mật dài.",
-      funFact: "Bướm nếm vị thức ăn qua các cảm biến nằm ở bàn chân.",
+      description: "Côn trùng có đôi cánh mang màu sắc rực rỡ, đóng vai trò quan trọng trong việc thụ phấn cho hoa.",
+      funFact: "Bướm nếm vị mật hoa thông qua các cơ quan cảm giác đặt ở đầu bàn chân.",
       conservationStatus: "Ít quan tâm (LC)"
     };
   }
-  if (l.includes('lizard') || l.includes('gecko') || l.includes('chameleon') || l.includes('iguana') || l.includes('reptile')) {
+  if (l.includes('lizard') || l.includes('gecko') || l.includes('chameleon') || l.includes('iguana') || l.includes('agama') || l.includes('reptile')) {
     return {
       found: true,
       commonName: "Bò Sát Nhiệt Đới",
       scientificName: "Reptilia",
       category: "Bò sát",
       rarity: "Không thường gặp",
-      habitat: "Thân cây, vách đá, bụi rậm",
-      description: "Động vật máu lạnh với lớp vảy sừng bảo vệ cơ thể khỏi mất nước.",
-      funFact: "Nhiều loài bò sát có khả năng tái sinh lại chiếc đuôi sau khi tự đứt.",
+      habitat: "Thân cây, vách đá, bụi cỏ rậm rạp",
+      description: "Động vật biến nhiệt với lớp da phủ vảy sừng bảo vệ cơ thể khỏi mất nước.",
+      funFact: "Nhiều loài bò sát có khả năng tự ngắt đuôi để đánh lạc hướng kẻ săn mồi và tự mọc lại sau đó.",
       conservationStatus: "Ít quan tâm (LC)"
     };
   }
-  if (l.includes('fish') || l.includes('goldfish') || l.includes('shark') || l.includes('carp')) {
+  if (l.includes('fish') || l.includes('goldfish') || l.includes('shark') || l.includes('carp') || l.includes('aquarium')) {
     return {
       found: true,
       commonName: "Cá Cảnh",
@@ -419,13 +417,12 @@ function convertLabelToSpecimen(label) {
       category: "Cá",
       rarity: "Phổ biến",
       habitat: "Môi trường nước ngọt và thủy cung",
-      description: "Động vật có dây sống dưới nước, hô hấp bằng mang và bơi bằng vây.",
-      funFact: "Cá không có mí mắt nên chúng luôn mở mắt ngay cả khi ngủ.",
+      description: "Sinh vật sống dưới nước, bơi lội linh hoạt bằng vây và hô hấp qua mang.",
+      funFact: "Cá không có mí mắt nên chúng vẫn mở mắt hoàn toàn ngay cả khi đang nghỉ ngơi.",
       conservationStatus: "Thuần hóa"
     };
   }
 
-  // Tên nhận diện chung
   const cleanName = label.split(',')[0].replace(/_/g, ' ');
   return {
     found: true,
@@ -433,48 +430,56 @@ function convertLabelToSpecimen(label) {
     scientificName: cleanName,
     category: "Thú",
     rarity: "Không thường gặp",
-    habitat: "Môi trường sống tự nhiên",
-    description: `Sinh vật được nhận diện mang đặc điểm của ${cleanName}.`,
-    funFact: "Một sinh vật độc đáo được thêm vào sổ tay sinh vật của bạn.",
+    habitat: "Môi trường tự nhiên",
+    description: `Sinh vật mang đặc điểm nhận dạng của ${cleanName}.`,
+    funFact: "Một sinh vật độc đáo được khám phá và ghi vào sổ tay của bạn.",
     conservationStatus: "Ít quan tâm (LC)"
   };
 }
 
 async function handleFile(file){
   if(!file) return;
+  
   document.getElementById('scan-idle').style.display = 'none';
   document.getElementById('scan-result').innerHTML = '';
   document.getElementById('scan-working').style.display = 'block';
   shutterBtn.classList.add('pulsing');
+  document.getElementById('scanStatusText').textContent = 'Đang nạp ảnh…';
 
   try{
-    const reader = new FileReader();
-    reader.onload = async (e) => {
-      const dataUrl = e.target.result;
-      const img = document.getElementById('previewImg');
-      img.src = dataUrl;
+    const dataUrl = await new Promise((resolve, reject) => {
+      const reader = new FileReader();
+      reader.onload = (e) => resolve(e.target.result);
+      reader.onerror = reject;
+      reader.readAsDataURL(file);
+    });
 
-      document.getElementById('scanStatusText').textContent = 'AI đang phân tích bức ảnh…';
-      
-      const model = await loadAIModel();
-      // Đợi ảnh load xong để phân tích
-      img.onload = async () => {
-        const predictions = await model.classify(img);
-        
-        document.getElementById('scan-working').style.display = 'none';
-        shutterBtn.classList.remove('pulsing');
+    const imgElement = document.getElementById('previewImg');
+    imgElement.src = dataUrl;
 
-        if (predictions && predictions.length > 0) {
-          const info = convertLabelToSpecimen(predictions[0].className);
-          renderResult(info, dataUrl);
-        } else {
-          renderResult({ found: false }, dataUrl);
-        }
-      };
-    };
-    reader.readAsDataURL(file);
+    const imgObj = new Image();
+    imgObj.crossOrigin = "anonymous";
+    imgObj.src = dataUrl;
+    await new Promise((res) => {
+      if (imgObj.complete) res();
+      else imgObj.onload = res;
+    });
+
+    document.getElementById('scanStatusText').textContent = 'AI đang phân tích ảnh…';
+    const model = await getModel();
+    const predictions = await model.classify(imgObj);
+
+    document.getElementById('scan-working').style.display = 'none';
+    shutterBtn.classList.remove('pulsing');
+
+    if (predictions && predictions.length > 0) {
+      const info = convertLabelToSpecimen(predictions[0].className);
+      renderResult(info, dataUrl);
+    } else {
+      renderResult({ found: false }, dataUrl);
+    }
   }catch(err){
-    console.error(err);
+    console.error("Lỗi scan:", err);
     document.getElementById('scan-working').style.display = 'none';
     shutterBtn.classList.remove('pulsing');
     document.getElementById('scan-result').innerHTML = `
@@ -631,13 +636,11 @@ function renderAchievements(){
   }).join('');
 }
 
-// Khởi chạy
 (async function init(){
   loadCollection();
   renderCollection();
   renderAchievements();
-  // Tải trước model AI trong nền
-  loadAIModel().catch(console.error);
+  getModel().catch(console.error);
 })();
 </script>
 </body>
