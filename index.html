@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <!-- Cấu hình PWA cho iOS & Android -->
   <link rel="manifest" href="manifest.json">
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
@@ -161,7 +160,7 @@
     .modal-bg{ position:fixed; inset:0; background:rgba(10,16,12,0.72); display:none; align-items:flex-end; justify-content:center; z-index:100; }
     .modal-bg.show{display:flex;}
     .modal-sheet{ width:100%; max-width:480px; max-height:85vh; overflow-y:auto; background:var(--canopy); border-radius:20px 20px 0 0; padding:20px 20px 30px; animation:sheetUp .3s ease; }
-    @keyframes sheetUp{from{transform:translateY(40px); opacity:0;} to{transform:translateY(0); opacity:1;}}
+    @keyframes sheetUp{from{transform:translateY(40px); opacity:0;} to{transform:translateY(0);}}
     .modal-close{ display:block; margin:0 auto 12px; width:40px; height:4px; border-radius:4px; background:var(--line); border:none; }
     .del-btn{color:#d17a5a; background:transparent; border:1px solid rgba(209,122,90,0.35);}
   </style>
@@ -331,15 +330,6 @@ document.getElementById('galleryBtn').addEventListener('click', ()=> galleryInpu
 cameraInput.addEventListener('change', (e)=> handleFile(e.target.files[0]));
 galleryInput.addEventListener('change', (e)=> handleFile(e.target.files[0]));
 
-function readFileToDataUrl(file){
-  return new Promise((resolve, reject)=>{
-    const reader = new FileReader();
-    reader.onload = (e)=> resolve(e.target.result);
-    reader.onerror = reject;
-    reader.readAsDataURL(file);
-  });
-}
-
 function compressImage(file, maxDim = 800, quality = 0.8) {
   return new Promise((resolve, reject) => {
     const reader = new FileReader();
@@ -393,40 +383,38 @@ async function handleFile(file){
 }
 
 async function identifySpecies(base64Data, mimeType = "image/jpeg") {
-  const prompt = `Bạn là trợ lý nhận diện sinh vật thông minh cho ứng dụng sổ tay thiên nhiên tên "Creamal".
-Hãy phân tích kỹ hình ảnh và xác định chính xác nhất loài động vật, thú cưng, chim, côn trùng, bò sát, cá hoặc sinh vật xuất hiện trong ảnh.
-
-BẮT BUỘC chỉ trả về DUY NHẤT một chuỗi JSON thuần túy (không bọc trong \`\`\`json hoặc markdown nào khác), với cấu trúc chính xác:
+  const prompt = `Bạn là chuyên gia nhận diện sinh vật cho ứng dụng Creamal. Hãy nhìn vào ảnh và xác định chính xác con vật hoặc sinh vật này.
+Trả về DUY NHẤT một chuỗi JSON hợp lệ không bọc trong markdown, có định dạng sau:
 {
   "found": true,
-  "commonName": "Tên tiếng Việt chuẩn xác của sinh vật (ví dụ: Mèo mướp, Mèo Ta, Chó Golden, Chim Bồ Câu...)",
-  "scientificName": "Tên danh pháp khoa học hai phần (ví dụ: Felis catus, Canis lupus familiaris...)",
+  "commonName": "Tên tiếng Việt chuẩn xác (ví dụ: Mèo nhà, Mèo mướp, Chó Poodle, Chim Sẻ...)",
+  "scientificName": "Tên khoa học hai phần (ví dụ: Felis catus)",
   "category": "Một trong: Thú, Chim, Bò sát, Lưỡng cư, Côn trùng, Cá, Nhện, Khác",
   "rarity": "Một trong: Phổ biến, Không thường gặp, Hiếm, Huyền thoại",
-  "habitat": "Nơi thường sống hoặc môi trường sống ngắn gọn bằng tiếng Việt",
-  "description": "Mô tả ngắn gọn đặc điểm nhận dạng 1-2 câu tiếng Việt",
-  "funFact": "Một thông tin thú vị ngắn về loài này",
-  "conservationStatus": "Tình trạng bảo tồn ngắn gọn (ví dụ: Thuần hóa, Ít quan tâm, Nguy cấp...)"
+  "habitat": "Nơi sống điển hình bằng tiếng Việt",
+  "description": "Mô tả ngắn gọn 1-2 câu về con vật",
+  "funFact": "Một sự thật thú vị ngắn gọn",
+  "conservationStatus": "Tình trạng bảo tồn (hoặc Thuần hóa)"
 }
-Nếu trong ảnh hoàn toàn không tìm thấy sinh vật hoặc con vật nào, trả về {"found": false}.`;
+Nếu ảnh hoàn toàn không có bất kỳ con vật nào, trả về {"found": false}`;
 
-  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`;
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${GEMINI_API_KEY}`;
 
   const payload = {
     contents: [{
       parts: [
         { text: prompt },
         {
-          inline_data: {
-            mime_type: mimeType,
+          inlineData: {
+            mimeType: mimeType,
             data: base64Data
           }
         }
       ]
     }],
     generationConfig: {
-      temperature: 0.2,
-      response_mime_type: "application/json"
+      temperature: 0.1,
+      responseMimeType: "application/json"
     }
   };
 
@@ -437,7 +425,9 @@ Nếu trong ảnh hoàn toàn không tìm thấy sinh vật hoặc con vật nà
   });
 
   if (!response.ok) {
-    throw new Error("Lỗi kết nối Gemini API");
+    const errorDetail = await response.text();
+    console.error("Gemini API Error:", errorDetail);
+    throw new Error("Lỗi gọi Gemini API");
   }
 
   const result = await response.json();
