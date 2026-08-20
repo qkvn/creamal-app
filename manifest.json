@@ -1,0 +1,17 @@
+{
+  "name": "Creamal - Nhật Ký Sinh Vật",
+  "short_name": "Creamal",
+  "description": "Ứng dụng quét và sưu tầm các loài động vật hoang dã",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#14211A",
+  "theme_color": "#14211A",
+  "icons": [
+    {
+      "src": "https://api.iconify.design/lucide:leaf.svg?color=%238aa968",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
