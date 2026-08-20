@@ -2,345 +2,345 @@
 <html lang="vi">
 <head>
   <!-- Cấu hình PWA cho iOS & Android -->
-    <link rel="manifest" href="manifest.json">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="apple-mobile-web-app-title" content="Creamal">
-    <meta name="theme-color" content="#14211A">
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-<title>Creamal — Nhật ký sinh vật</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<style>
-  :root{
-    --forest-deep:#14211A;
-    --canopy:#1E3025;
-    --canopy-2:#263A2C;
-    --parchment:#F2E9D8;
-    --parchment-dim:#C9BFA9;
-    --moss:#8AA968;
-    --moss-dim:#5C7A47;
-    --amber:#C98A3A;
-    --violet:#8A72B8;
-    --gold:#D8B34A;
-    --line: rgba(242,233,216,0.14);
-    --shadow: 0 10px 30px rgba(0,0,0,0.35);
-  }
-  *{box-sizing:border-box;}
-  html,body{margin:0;padding:0;}
-  body{
-    background:
-      radial-gradient(1200px 600px at 50% -10%, #1c2e22 0%, var(--forest-deep) 55%),
-      var(--forest-deep);
-    color:var(--parchment);
-    font-family:'Inter',sans-serif;
-    -webkit-font-smoothing:antialiased;
-    min-height:100vh;
-    overflow-x:hidden;
-  }
-  .app{
-    max-width:480px;
-    margin:0 auto;
-    min-height:100vh;
-    position:relative;
-    padding-bottom:92px;
-    background-image:
-      radial-gradient(circle at 15% 8%, rgba(138,169,104,0.07), transparent 40%),
-      radial-gradient(circle at 85% 20%, rgba(216,179,74,0.05), transparent 35%);
-  }
+  <link rel="manifest" href="manifest.json">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="Creamal">
+  <meta name="theme-color" content="#14211A">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>Creamal — Nhật ký sinh vật</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,900;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --forest-deep:#14211A;
+      --canopy:#1E3025;
+      --canopy-2:#263A2C;
+      --parchment:#F2E9D8;
+      --parchment-dim:#C9BFA9;
+      --moss:#8AA968;
+      --moss-dim:#5C7A47;
+      --amber:#C98A3A;
+      --violet:#8A72B8;
+      --gold:#D8B34A;
+      --line: rgba(242,233,216,0.14);
+      --shadow: 0 10px 30px rgba(0,0,0,0.35);
+    }
+    *{box-sizing:border-box;}
+    html,body{margin:0;padding:0;}
+    body{
+      background:
+        radial-gradient(1200px 600px at 50% -10%, #1c2e22 0%, var(--forest-deep) 55%),
+        var(--forest-deep);
+      color:var(--parchment);
+      font-family:'Inter',sans-serif;
+      -webkit-font-smoothing:antialiased;
+      min-height:100vh;
+      overflow-x:hidden;
+    }
+    .app{
+      max-width:480px;
+      margin:0 auto;
+      min-height:100vh;
+      position:relative;
+      padding-bottom:92px;
+      background-image:
+        radial-gradient(circle at 15% 8%, rgba(138,169,104,0.07), transparent 40%),
+        radial-gradient(circle at 85% 20%, rgba(216,179,74,0.05), transparent 35%);
+    }
 
-  /* ---------- Header ---------- */
-  header.top{
-    padding:26px 22px 18px;
-    display:flex;
-    align-items:center;
-    gap:14px;
-    border-bottom:1px solid var(--line);
-  }
-  .stamp-mark{
-    width:46px;height:46px;border-radius:50%;
-    border:1.5px solid var(--moss);
-    display:flex;align-items:center;justify-content:center;
-    flex-shrink:0;
-    position:relative;
-    background:radial-gradient(circle at 35% 30%, rgba(138,169,104,0.25), transparent 70%);
-  }
-  .stamp-mark svg{width:24px;height:24px;}
-  .brand h1{
-    font-family:'Fraunces',serif;
-    font-weight:900;
-    font-size:26px;
-    letter-spacing:0.3px;
-    margin:0;
-    color:var(--parchment);
-  }
-  .brand p{
-    margin:2px 0 0;
-    font-size:12.5px;
-    letter-spacing:1.2px;
-    text-transform:uppercase;
-    color:var(--parchment-dim);
-  }
+    /* Header */
+    header.top{
+      padding:26px 22px 18px;
+      display:flex;
+      align-items:center;
+      gap:14px;
+      border-bottom:1px solid var(--line);
+    }
+    .stamp-mark{
+      width:46px;height:46px;border-radius:50%;
+      border:1.5px solid var(--moss);
+      display:flex;align-items:center;justify-content:center;
+      flex-shrink:0;
+      position:relative;
+      background:radial-gradient(circle at 35% 30%, rgba(138,169,104,0.25), transparent 70%);
+    }
+    .stamp-mark svg{width:24px;height:24px;}
+    .brand h1{
+      font-family:'Fraunces',serif;
+      font-weight:900;
+      font-size:26px;
+      letter-spacing:0.3px;
+      margin:0;
+      color:var(--parchment);
+    }
+    .brand p{
+      margin:2px 0 0;
+      font-size:12.5px;
+      letter-spacing:1.2px;
+      text-transform:uppercase;
+      color:var(--parchment-dim);
+    }
 
-  /* ---------- Tabs content ---------- */
-  main{padding:22px 18px 10px; min-height:60vh;}
-  .screen{display:none; animation:fadeUp .35s ease;}
-  .screen.active{display:block;}
-  @keyframes fadeUp{from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);}}
+    /* Tabs content */
+    main{padding:22px 18px 10px; min-height:60vh;}
+    .screen{display:none; animation:fadeUp .35s ease;}
+    .screen.active{display:block;}
+    @keyframes fadeUp{from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);}}
 
-  /* ---------- Scan screen ---------- */
-  .scan-hero{
-    text-align:center;
-    padding:18px 6px 28px;
-  }
-  .scan-hero h2{
-    font-family:'Fraunces',serif;
-    font-weight:600;
-    font-size:21px;
-    margin:0 0 8px;
-  }
-  .scan-hero p{
-    color:var(--parchment-dim);
-    font-size:14px;
-    line-height:1.5;
-    margin:0 auto;
-    max-width:320px;
-  }
-  .shutter-wrap{
-    display:flex; flex-direction:column; align-items:center; gap:16px;
-    margin-top:26px;
-  }
-  .shutter-btn{
-    width:118px;height:118px;border-radius:50%;
-    background:radial-gradient(circle at 35% 30%, #a3c47f, var(--moss) 55%, var(--moss-dim) 100%);
-    border:5px solid rgba(242,233,216,0.85);
-    box-shadow:0 12px 26px rgba(0,0,0,0.4), inset 0 0 0 1px rgba(0,0,0,0.15);
-    display:flex;align-items:center;justify-content:center;
-    cursor:pointer;
-    transition:transform .15s ease;
-    position:relative;
-  }
-  .shutter-btn:active{transform:scale(0.93);}
-  .shutter-btn svg{width:42px;height:42px;color:var(--forest-deep);}
-  .shutter-pulse{
-    position:absolute; inset:-5px; border-radius:50%;
-    border:2px solid var(--moss);
-    opacity:0; 
-  }
-  .shutter-btn.pulsing .shutter-pulse{ animation:pulseRing 1.1s ease-out infinite; }
-  @keyframes pulseRing{
-    0%{opacity:.6; transform:scale(1);}
-    100%{opacity:0; transform:scale(1.4);}
-  }
-  .gallery-link{
-    background:none;border:none;color:var(--parchment-dim);
-    font-family:'Inter',sans-serif; font-size:13.5px;
-    text-decoration:underline; text-underline-offset:3px;
-    cursor:pointer; padding:6px;
-  }
-  .gallery-link:hover{color:var(--parchment);}
+    /* Scan screen */
+    .scan-hero{
+      text-align:center;
+      padding:18px 6px 28px;
+    }
+    .scan-hero h2{
+      font-family:'Fraunces',serif;
+      font-weight:600;
+      font-size:21px;
+      margin:0 0 8px;
+    }
+    .scan-hero p{
+      color:var(--parchment-dim);
+      font-size:14px;
+      line-height:1.5;
+      margin:0 auto;
+      max-width:320px;
+    }
+    .shutter-wrap{
+      display:flex; flex-direction:column; align-items:center; gap:16px;
+      margin-top:26px;
+    }
+    .shutter-btn{
+      width:118px;height:118px;border-radius:50%;
+      background:radial-gradient(circle at 35% 30%, #a3c47f, var(--moss) 55%, var(--moss-dim) 100%);
+      border:5px solid rgba(242,233,216,0.85);
+      box-shadow:0 12px 26px rgba(0,0,0,0.4), inset 0 0 0 1px rgba(0,0,0,0.15);
+      display:flex;align-items:center;justify-content:center;
+      cursor:pointer;
+      transition:transform .15s ease;
+      position:relative;
+    }
+    .shutter-btn:active{transform:scale(0.93);}
+    .shutter-btn svg{width:42px;height:42px;color:var(--forest-deep);}
+    .shutter-pulse{
+      position:absolute; inset:-5px; border-radius:50%;
+      border:2px solid var(--moss);
+      opacity:0; 
+    }
+    .shutter-btn.pulsing .shutter-pulse{ animation:pulseRing 1.1s ease-out infinite; }
+    @keyframes pulseRing{
+      0%{opacity:.6; transform:scale(1);}
+      100%{opacity:0; transform:scale(1.4);}
+    }
+    .gallery-link{
+      background:none;border:none;color:var(--parchment-dim);
+      font-family:'Inter',sans-serif; font-size:13.5px;
+      text-decoration:underline; text-underline-offset:3px;
+      cursor:pointer; padding:6px;
+    }
+    .gallery-link:hover{color:var(--parchment);}
 
-  .preview-frame{
-    border-radius:18px;overflow:hidden;border:1px solid var(--line);
-    background:var(--canopy); margin-bottom:16px;
-    aspect-ratio:1/1; display:flex;align-items:center;justify-content:center;
-    position:relative;
-  }
-  .preview-frame img{width:100%;height:100%;object-fit:cover;display:block;}
-  .scan-overlay{
-    position:absolute;inset:0;
-    background:linear-gradient(180deg, rgba(20,33,26,0.1), rgba(20,33,26,0.75));
-    display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
-  }
-  .scan-line{
-    position:absolute; left:6%; right:6%; height:2px;
-    background:linear-gradient(90deg, transparent, var(--moss), transparent);
-    box-shadow:0 0 10px var(--moss);
-    animation:scanMove 1.6s ease-in-out infinite;
-  }
-  @keyframes scanMove{
-    0%{top:8%;} 50%{top:92%;} 100%{top:8%;}
-  }
-  .scan-status{
-    font-size:13px; letter-spacing:0.6px; text-transform:uppercase;
-    color:var(--parchment); background:rgba(20,33,26,0.6);
-    padding:6px 14px; border-radius:20px; border:1px solid var(--line);
-  }
+    .preview-frame{
+      border-radius:18px;overflow:hidden;border:1px solid var(--line);
+      background:var(--canopy); margin-bottom:16px;
+      aspect-ratio:1/1; display:flex;align-items:center;justify-content:center;
+      position:relative;
+    }
+    .preview-frame img{width:100%;height:100%;object-fit:cover;display:block;}
+    .scan-overlay{
+      position:absolute;inset:0;
+      background:linear-gradient(180deg, rgba(20,33,26,0.1), rgba(20,33,26,0.75));
+      display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+    }
+    .scan-line{
+      position:absolute; left:6%; right:6%; height:2px;
+      background:linear-gradient(90deg, transparent, var(--moss), transparent);
+      box-shadow:0 0 10px var(--moss);
+      animation:scanMove 1.6s ease-in-out infinite;
+    }
+    @keyframes scanMove{
+      0%{top:8%;} 50%{top:92%;} 100%{top:8%;}
+    }
+    .scan-status{
+      font-size:13px; letter-spacing:0.6px; text-transform:uppercase;
+      color:var(--parchment); background:rgba(20,33,26,0.6);
+      padding:6px 14px; border-radius:20px; border:1px solid var(--line);
+    }
 
-  /* ---------- Specimen card ---------- */
-  .specimen{
-    background:linear-gradient(180deg, var(--canopy-2), var(--canopy));
-    border:1px solid var(--line);
-    border-radius:20px;
-    padding:20px 20px 22px;
-    position:relative;
-    box-shadow:var(--shadow);
-    margin-bottom:18px;
-    animation:cardIn .45s cubic-bezier(.2,.8,.2,1);
-  }
-  @keyframes cardIn{from{opacity:0; transform:translateY(16px) scale(.98);} to{opacity:1; transform:none;}}
-  .specimen::after{
-    content:"";
-    position:absolute; left:16px; right:16px; bottom:-1px; height:10px;
-    background-image: radial-gradient(circle, var(--forest-deep) 4.5px, transparent 4.6px);
-    background-size:16px 16px;
-    background-position:0 0;
-    background-repeat:repeat-x;
-  }
-  .seal{
-    position:absolute; top:16px; right:16px;
-    width:52px;height:52px;border-radius:50%;
-    display:flex;align-items:center;justify-content:center;
-    font-size:9.5px; text-transform:uppercase; letter-spacing:0.5px; text-align:center;
-    font-weight:700; color:var(--forest-deep);
-    border:2px dashed rgba(20,33,26,0.35);
-  }
-  .specimen-photo{
-    width:96px;height:96px;border-radius:12px;object-fit:cover;
-    border:1px solid var(--line);
-    float:left; margin:0 14px 8px 0;
-  }
-  .specimen h3{
-    font-family:'Fraunces',serif; font-weight:700; font-size:20px;
-    margin:0 0 2px; padding-right:60px;
-  }
-  .specimen .sci{
-    font-family:'Fraunces',serif; font-style:italic; font-weight:500;
-    color:var(--parchment-dim); font-size:13.5px; margin:0 0 10px;
-  }
-  .tag-row{display:flex; gap:6px; flex-wrap:wrap; margin-bottom:4px;}
-  .tag{
-    font-size:11px; padding:3px 9px; border-radius:20px;
-    background:rgba(242,233,216,0.08); border:1px solid var(--line);
-    color:var(--parchment-dim); letter-spacing:0.3px;
-  }
-  .clearfix{clear:both;}
-  .specimen .desc{font-size:14px; line-height:1.6; color:var(--parchment); margin:12px 0 10px;}
-  .specimen .field{font-size:13px; line-height:1.5; margin:6px 0; color:var(--parchment-dim);}
-  .specimen .field b{color:var(--parchment); font-weight:600;}
-  .funfact{
-    margin-top:12px; padding:10px 12px; border-radius:10px;
-    background:rgba(138,169,104,0.1); border:1px solid rgba(138,169,104,0.25);
-    font-size:13px; line-height:1.55;
-  }
-  .funfact b{color:var(--moss);}
+    /* Specimen card */
+    .specimen{
+      background:linear-gradient(180deg, var(--canopy-2), var(--canopy));
+      border:1px solid var(--line);
+      border-radius:20px;
+      padding:20px 20px 22px;
+      position:relative;
+      box-shadow:var(--shadow);
+      margin-bottom:18px;
+      animation:cardIn .45s cubic-bezier(.2,.8,.2,1);
+    }
+    @keyframes cardIn{from{opacity:0; transform:translateY(16px) scale(.98);} to{opacity:1; transform:none;}}
+    .specimen::after{
+      content:"";
+      position:absolute; left:16px; right:16px; bottom:-1px; height:10px;
+      background-image: radial-gradient(circle, var(--forest-deep) 4.5px, transparent 4.6px);
+      background-size:16px 16px;
+      background-position:0 0;
+      background-repeat:repeat-x;
+    }
+    .seal{
+      position:absolute; top:16px; right:16px;
+      width:52px;height:52px;border-radius:50%;
+      display:flex;align-items:center;justify-content:center;
+      font-size:9.5px; text-transform:uppercase; letter-spacing:0.5px; text-align:center;
+      font-weight:700; color:var(--forest-deep);
+      border:2px dashed rgba(20,33,26,0.35);
+    }
+    .specimen-photo{
+      width:96px;height:96px;border-radius:12px;object-fit:cover;
+      border:1px solid var(--line);
+      float:left; margin:0 14px 8px 0;
+    }
+    .specimen h3{
+      font-family:'Fraunces',serif; font-weight:700; font-size:20px;
+      margin:0 0 2px; padding-right:60px;
+    }
+    .specimen .sci{
+      font-family:'Fraunces',serif; font-style:italic; font-weight:500;
+      color:var(--parchment-dim); font-size:13.5px; margin:0 0 10px;
+    }
+    .tag-row{display:flex; gap:6px; flex-wrap:wrap; margin-bottom:4px;}
+    .tag{
+      font-size:11px; padding:3px 9px; border-radius:20px;
+      background:rgba(242,233,216,0.08); border:1px solid var(--line);
+      color:var(--parchment-dim); letter-spacing:0.3px;
+    }
+    .clearfix{clear:both;}
+    .specimen .desc{font-size:14px; line-height:1.6; color:var(--parchment); margin:12px 0 10px;}
+    .specimen .field{font-size:13px; line-height:1.5; margin:6px 0; color:var(--parchment-dim);}
+    .specimen .field b{color:var(--parchment); font-weight:600;}
+    .funfact{
+      margin-top:12px; padding:10px 12px; border-radius:10px;
+      background:rgba(138,169,104,0.1); border:1px solid rgba(138,169,104,0.25);
+      font-size:13px; line-height:1.55;
+    }
+    .funfact b{color:var(--moss);}
 
-  .btn{
-    width:100%; padding:13px; border-radius:12px; border:none;
-    font-family:'Inter',sans-serif; font-weight:600; font-size:14.5px;
-    cursor:pointer; margin-top:14px;
-    display:flex; align-items:center; justify-content:center; gap:8px;
-  }
-  .btn-primary{background:var(--moss); color:var(--forest-deep);}
-  .btn-primary:active{transform:scale(0.98);}
-  .btn-primary:disabled{background:var(--canopy-2); color:var(--parchment-dim); cursor:default;}
-  .btn-ghost{
-    background:transparent; border:1px solid var(--line); color:var(--parchment-dim);
-  }
+    .btn{
+      width:100%; padding:13px; border-radius:12px; border:none;
+      font-family:'Inter',sans-serif; font-weight:600; font-size:14.5px;
+      cursor:pointer; margin-top:14px;
+      display:flex; align-items:center; justify-content:center; gap:8px;
+    }
+    .btn-primary{background:var(--moss); color:var(--forest-deep);}
+    .btn-primary:active{transform:scale(0.98);}
+    .btn-primary:disabled{background:var(--canopy-2); color:var(--parchment-dim); cursor:default;}
+    .btn-ghost{
+      background:transparent; border:1px solid var(--line); color:var(--parchment-dim);
+    }
 
-  .empty-note{
-    text-align:center; padding:30px 18px; color:var(--parchment-dim); font-size:14px;
-  }
+    .empty-note{
+      text-align:center; padding:30px 18px; color:var(--parchment-dim); font-size:14px;
+    }
 
-  /* ---------- Collection grid ---------- */
-  .section-title{
-    font-family:'Fraunces',serif; font-weight:700; font-size:19px; margin:2px 0 4px;
-  }
-  .section-sub{color:var(--parchment-dim); font-size:13px; margin:0 0 16px;}
-  .stat-row{display:flex; gap:10px; margin-bottom:18px;}
-  .stat-box{
-    flex:1; background:var(--canopy); border:1px solid var(--line); border-radius:14px;
-    padding:12px 10px; text-align:center;
-  }
-  .stat-box .num{font-family:'Fraunces',serif; font-weight:900; font-size:22px; color:var(--moss);}
-  .stat-box .lab{font-size:10.5px; text-transform:uppercase; letter-spacing:0.5px; color:var(--parchment-dim); margin-top:2px;}
+    /* Collection grid */
+    .section-title{
+      font-family:'Fraunces',serif; font-weight:700; font-size:19px; margin:2px 0 4px;
+    }
+    .section-sub{color:var(--parchment-dim); font-size:13px; margin:0 0 16px;}
+    .stat-row{display:flex; gap:10px; margin-bottom:18px;}
+    .stat-box{
+      flex:1; background:var(--canopy); border:1px solid var(--line); border-radius:14px;
+      padding:12px 10px; text-align:center;
+    }
+    .stat-box .num{font-family:'Fraunces',serif; font-weight:900; font-size:22px; color:var(--moss);}
+    .stat-box .lab{font-size:10.5px; text-transform:uppercase; letter-spacing:0.5px; color:var(--parchment-dim); margin-top:2px;}
 
-  .grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:10px;}
-  .grid-card{
-    aspect-ratio:3/4; border-radius:14px; overflow:hidden; position:relative;
-    border:1px solid var(--line); cursor:pointer; background:var(--canopy);
-  }
-  .grid-card img{width:100%;height:100%;object-fit:cover; display:block;}
-  .grid-card .gname{
-    position:absolute; left:0; right:0; bottom:0; padding:6px 6px 5px;
-    font-size:10.5px; font-weight:600; text-align:center; line-height:1.2;
-    background:linear-gradient(0deg, rgba(20,33,26,0.9), transparent);
-  }
-  .grid-card .rdot{
-    position:absolute; top:6px; right:6px; width:9px;height:9px;border-radius:50%;
-    box-shadow:0 0 6px rgba(0,0,0,0.5);
-  }
+    .grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:10px;}
+    .grid-card{
+      aspect-ratio:3/4; border-radius:14px; overflow:hidden; position:relative;
+      border:1px solid var(--line); cursor:pointer; background:var(--canopy);
+    }
+    .grid-card img{width:100%;height:100%;object-fit:cover; display:block;}
+    .grid-card .gname{
+      position:absolute; left:0; right:0; bottom:0; padding:6px 6px 5px;
+      font-size:10.5px; font-weight:600; text-align:center; line-height:1.2;
+      background:linear-gradient(0deg, rgba(20,33,26,0.9), transparent);
+    }
+    .grid-card .rdot{
+      position:absolute; top:6px; right:6px; width:9px;height:9px;border-radius:50%;
+      box-shadow:0 0 6px rgba(0,0,0,0.5);
+    }
 
-  /* ---------- Achievements ---------- */
-  .level-card{
-    background:linear-gradient(135deg, var(--canopy-2), var(--canopy));
-    border:1px solid var(--line); border-radius:16px; padding:16px 18px; margin-bottom:20px;
-  }
-  .level-top{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px;}
-  .level-top .lvl{font-family:'Fraunces',serif; font-weight:900; font-size:20px; color:var(--gold);}
-  .level-top .lvltxt{font-size:12px; color:var(--parchment-dim);}
-  .xp-bar{height:8px; border-radius:6px; background:rgba(242,233,216,0.1); overflow:hidden;}
-  .xp-fill{height:100%; background:linear-gradient(90deg, var(--moss), var(--gold)); border-radius:6px; transition:width .5s ease;}
+    /* Achievements */
+    .level-card{
+      background:linear-gradient(135deg, var(--canopy-2), var(--canopy));
+      border:1px solid var(--line); border-radius:16px; padding:16px 18px; margin-bottom:20px;
+    }
+    .level-top{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px;}
+    .level-top .lvl{font-family:'Fraunces',serif; font-weight:900; font-size:20px; color:var(--gold);}
+    .level-top .lvltxt{font-size:12px; color:var(--parchment-dim);}
+    .xp-bar{height:8px; border-radius:6px; background:rgba(242,233,216,0.1); overflow:hidden;}
+    .xp-fill{height:100%; background:linear-gradient(90deg, var(--moss), var(--gold)); border-radius:6px; transition:width .5s ease;}
 
-  .ach{
-    display:flex; gap:14px; align-items:center;
-    background:var(--canopy); border:1px solid var(--line); border-radius:14px;
-    padding:13px 14px; margin-bottom:10px;
-  }
-  .ach.locked{opacity:0.45;}
-  .ach-icon{
-    width:42px;height:42px;border-radius:50%; flex-shrink:0;
-    display:flex;align-items:center;justify-content:center; font-size:19px;
-    background:rgba(138,169,104,0.15); border:1px solid rgba(138,169,104,0.3);
-  }
-  .ach.locked .ach-icon{background:rgba(242,233,216,0.05); border-color:var(--line);}
-  .ach-body{flex:1;}
-  .ach-body .aname{font-weight:600; font-size:14px; margin-bottom:2px;}
-  .ach-body .adesc{font-size:12px; color:var(--parchment-dim); margin-bottom:6px;}
-  .mini-bar{height:5px; border-radius:4px; background:rgba(242,233,216,0.1); overflow:hidden;}
-  .mini-fill{height:100%; background:var(--moss); border-radius:4px;}
+    .ach{
+      display:flex; gap:14px; align-items:center;
+      background:var(--canopy); border:1px solid var(--line); border-radius:14px;
+      padding:13px 14px; margin-bottom:10px;
+    }
+    .ach.locked{opacity:0.45;}
+    .ach-icon{
+      width:42px;height:42px;border-radius:50%; flex-shrink:0;
+      display:flex;align-items:center;justify-content:center; font-size:19px;
+      background:rgba(138,169,104,0.15); border:1px solid rgba(138,169,104,0.3);
+    }
+    .ach.locked .ach-icon{background:rgba(242,233,216,0.05); border-color:var(--line);}
+    .ach-body{flex:1;}
+    .ach-body .aname{font-weight:600; font-size:14px; margin-bottom:2px;}
+    .ach-body .adesc{font-size:12px; color:var(--parchment-dim); margin-bottom:6px;}
+    .mini-bar{height:5px; border-radius:4px; background:rgba(242,233,216,0.1); overflow:hidden;}
+    .mini-fill{height:100%; background:var(--moss); border-radius:4px;}
 
-  /* ---------- Bottom nav ---------- */
-  nav.bottom{
-    position:fixed; bottom:0; left:50%; transform:translateX(-50%);
-    width:100%; max-width:480px;
-    background:rgba(20,33,26,0.92); backdrop-filter:blur(10px);
-    border-top:1px solid var(--line);
-    display:flex; padding:10px 12px calc(10px + env(safe-area-inset-bottom));
-    gap:6px;
-    z-index:50;
-  }
-  .nav-btn{
-    flex:1; background:none; border:none; color:var(--parchment-dim);
-    display:flex; flex-direction:column; align-items:center; gap:4px;
-    font-family:'Inter',sans-serif; font-size:10.5px; font-weight:600;
-    letter-spacing:0.3px; padding:6px 4px; border-radius:10px; cursor:pointer;
-  }
-  .nav-btn svg{width:21px;height:21px;}
-  .nav-btn.active{color:var(--moss); background:rgba(138,169,104,0.1);}
+    /* Bottom nav */
+    nav.bottom{
+      position:fixed; bottom:0; left:50%; transform:translateX(-50%);
+      width:100%; max-width:480px;
+      background:rgba(20,33,26,0.92); backdrop-filter:blur(10px);
+      border-top:1px solid var(--line);
+      display:flex; padding:10px 12px calc(10px + env(safe-area-inset-bottom));
+      gap:6px;
+      z-index:50;
+    }
+    .nav-btn{
+      flex:1; background:none; border:none; color:var(--parchment-dim);
+      display:flex; flex-direction:column; align-items:center; gap:4px;
+      font-family:'Inter',sans-serif; font-size:10.5px; font-weight:600;
+      letter-spacing:0.3px; padding:6px 4px; border-radius:10px; cursor:pointer;
+    }
+    .nav-btn svg{width:21px;height:21px;}
+    .nav-btn.active{color:var(--moss); background:rgba(138,169,104,0.1);}
 
-  /* ---------- Modal ---------- */
-  .modal-bg{
-    position:fixed; inset:0; background:rgba(10,16,12,0.72);
-    display:none; align-items:flex-end; justify-content:center; z-index:100;
-  }
-  .modal-bg.show{display:flex;}
-  .modal-sheet{
-    width:100%; max-width:480px; max-height:85vh; overflow-y:auto;
-    background:var(--canopy); border-radius:20px 20px 0 0;
-    padding:20px 20px 30px; animation:sheetUp .3s ease;
-  }
-  @keyframes sheetUp{from{transform:translateY(40px); opacity:0;} to{transform:translateY(0); opacity:1;}}
-  .modal-close{
-    display:block; margin:0 auto 12px; width:40px; height:4px; border-radius:4px;
-    background:var(--line); border:none;
-  }
-  .del-btn{color:#d17a5a; background:transparent; border:1px solid rgba(209,122,90,0.35);}
+    /* Modal */
+    .modal-bg{
+      position:fixed; inset:0; background:rgba(10,16,12,0.72);
+      display:none; align-items:flex-end; justify-content:center; z-index:100;
+    }
+    .modal-bg.show{display:flex;}
+    .modal-sheet{
+      width:100%; max-width:480px; max-height:85vh; overflow-y:auto;
+      background:var(--canopy); border-radius:20px 20px 0 0;
+      padding:20px 20px 30px; animation:sheetUp .3s ease;
+    }
+    @keyframes sheetUp{from{transform:translateY(40px); opacity:0;} to{transform:translateY(0); opacity:1;}}
+    .modal-close{
+      display:block; margin:0 auto 12px; width:40px; height:4px; border-radius:4px;
+      background:var(--line); border:none;
+    }
+    .del-btn{color:#d17a5a; background:transparent; border:1px solid rgba(209,122,90,0.35);}
 
-  ::-webkit-scrollbar{width:0;height:0;}
-</style>
+    ::-webkit-scrollbar{width:0;height:0;}
+  </style>
 </head>
 <body>
 <div class="app">
@@ -467,29 +467,101 @@ const ACHIEVEMENTS = [
   {id:'legendary', name:'Huyền Thoại Sống', desc:'Sưu tầm 1 loài Huyền thoại', target:1, icon:'⭐', calc:(c)=>rarityCount(c,'Huyền thoại')},
 ];
 
+/* Danh sách sinh vật mô phỏng phong phú */
+const MOCK_SPECIES = [
+  {
+    found: true,
+    commonName: "Sóc Đất Berdmore",
+    scientificName: "Menetes berdmorei",
+    category: "Thú",
+    rarity: "Phổ biến",
+    habitat: "Rừng thứ sinh, bìa rừng, vườn cây ăn quả",
+    description: "Loài sóc nhỏ có các sọc đen trắng chạy dọc lưng, thường kiếm ăn dưới mặt đất.",
+    funFact: "Chúng có túi má đặc biệt dùng để tích trữ thức ăn mang về tổ.",
+    conservationStatus: "Ít quan tâm (LC)"
+  },
+  {
+    found: true,
+    commonName: "Chim Sâu Ngực Đỏ",
+    scientificName: "Dicaeum cruentatum",
+    category: "Chim",
+    rarity: "Phổ biến",
+    habitat: "Tán cây bụi, vườn hoa đô thị và rừng ngập mặn",
+    description: "Loài chim nhỏ linh hoạt, con trống có vệt lông đỏ rực rỡ kéo dài từ đỉnh đầu xuống lưng.",
+    funFact: "Thức ăn ưa thích của chúng là quả tầm gửi và mật hoa nhiệt đới.",
+    conservationStatus: "Ít quan tâm (LC)"
+  },
+  {
+    found: true,
+    commonName: "Tắc Kè Hoa Calotes",
+    scientificName: "Calotes versicolor",
+    category: "Bò sát",
+    rarity: "Không thường gặp",
+    habitat: "Bụi rậm, hàng rào, cành cây thấp nhiều ánh nắng",
+    description: "Loài thằn lằn có khả năng đổi màu sắc cơ thể linh hoạt từ nâu sang đỏ cam khi giao phối.",
+    funFact: "Con đực thường gật đầu liên tục để phô trương sức mạnh và bảo vệ lãnh thổ.",
+    conservationStatus: "Ít quan tâm (LC)"
+  },
+  {
+    found: true,
+    commonName: "Bướm Phượng Cánh Chim",
+    scientificName: "Troides helena",
+    category: "Côn trùng",
+    rarity: "Hiếm",
+    habitat: "Tán rừng nhiệt đới mưa ẩm ẩm ướt",
+    description: "Loài bướm cỡ lớn tuyệt đẹp với cánh trước đen tuyền và cánh sau màu vàng kim óng ánh.",
+    funFact: "Sải cánh của loài bướm này có thể dài tới gần 17 cm.",
+    conservationStatus: "Sắp bị đe dọa (NT)"
+  },
+  {
+    found: true,
+    commonName: "Voọc Chà Vá Chân Nâu",
+    scientificName: "Pygathrix nemaeus",
+    category: "Thú",
+    rarity: "Huyền thoại",
+    habitat: "Rừng nguyên sinh thường xanh trên núi cao",
+    description: "Được mệnh danh là 'Nữ hoàng của các loài linh trưởng' với bộ lông 5 màu lộng lẫy đặc trưng.",
+    funFact: "Dạ dày của chúng có cấu tạo đặc biệt giúp tiêu hóa lượng lớn lá cây chứa nhiều xenluloza.",
+    conservationStatus: "Cực kỳ nguy cấp (CR)"
+  },
+  {
+    found: true,
+    commonName: "Ếch Cây Mắt Đỏ",
+    scientificName: "Agalychnis callidryas",
+    category: "Lưỡng cư",
+    rarity: "Hiếm",
+    habitat: "Tán lá cây rừng nhiệt đới gần nguồn nước",
+    description: "Màu da xanh ngọc bích nổi bật cùng đôi mắt đỏ rực giúp xua đuổi kẻ săn mồi.",
+    funFact: "Đôi mắt đỏ chói lòa của chúng là vũ khí tự vệ khiến kẻ thù bị giật mình trong chốc lát.",
+    conservationStatus: "Ít quan tâm (LC)"
+  }
+];
+
 function uniqueCount(c){ return new Set(c.map(x=>x.scientificName.toLowerCase())).size; }
 function catCount(c,cat){ return new Set(c.filter(x=>x.category===cat).map(x=>x.scientificName.toLowerCase())).size; }
 function rarityCount(c,r){ return new Set(c.filter(x=>x.rarity===r).map(x=>x.scientificName.toLowerCase())).size; }
 
 let collection = [];
 
-async function loadCollection(){
+/* Sử dụng LocalStorage chuẩn trình duyệt */
+function loadCollection(){
   try{
-    const res = await window.storage.get('collection', false);
-    collection = res && res.value ? JSON.parse(res.value) : [];
+    const res = localStorage.getItem('creamal_collection');
+    collection = res ? JSON.parse(res) : [];
   }catch(e){
     collection = [];
   }
 }
-async function saveCollection(){
+
+function saveCollection(){
   try{
-    await window.storage.set('collection', JSON.stringify(collection), false);
+    localStorage.setItem('creamal_collection', JSON.stringify(collection));
   }catch(e){
     console.error('Lỗi lưu dữ liệu', e);
   }
 }
 
-/* ---------- Tabs ---------- */
+/* Tabs */
 document.querySelectorAll('.nav-btn').forEach(btn=>{
   btn.addEventListener('click', ()=>{
     document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
@@ -501,7 +573,7 @@ document.querySelectorAll('.nav-btn').forEach(btn=>{
   });
 });
 
-/* ---------- Image capture ---------- */
+/* Image capture */
 const shutterBtn = document.getElementById('shutterBtn');
 const cameraInput = document.getElementById('cameraInput');
 const galleryInput = document.getElementById('galleryInput');
@@ -563,42 +635,14 @@ async function handleFile(file){
   galleryInput.value = '';
 }
 
+/* Quét giả lập thông minh */
 async function identifySpecies(base64, mediaType){
-  const prompt = `Bạn là trợ lý nhận diện sinh vật cho ứng dụng khám phá thiên nhiên tên "Creamal". Hãy phân tích bức ảnh và xác định sinh vật (động vật, chim, côn trùng, bò sát, cá, v.v.) xuất hiện rõ nhất trong ảnh.
-Chỉ trả về DUY NHẤT một đối tượng JSON hợp lệ, không có markdown, không có dấu backtick, không có lời giải thích thêm, với đúng các trường sau:
-{
-"found": boolean,
-"commonName": "tên phổ thông tiếng Việt của loài",
-"scientificName": "tên khoa học (danh pháp hai phần)",
-"category": một trong ["Chim","Thú","Bò sát","Lưỡng cư","Côn trùng","Cá","Nhện","Khác"],
-"rarity": một trong ["Phổ biến","Không thường gặp","Hiếm","Huyền thoại"] (đánh giá dựa trên mức độ hiếm gặp/đặc biệt của loài trong tự nhiên, "Huyền thoại" chỉ dành cho loài cực kỳ quý hiếm hoặc nguy cấp),
-"habitat": "môi trường sống điển hình, 1 câu ngắn tiếng Việt",
-"description": "mô tả ngắn 2-3 câu tiếng Việt về đặc điểm nhận dạng",
-"funFact": "một sự thật thú vị 1-2 câu tiếng Việt",
-"conservationStatus": "tình trạng bảo tồn ngắn gọn tiếng Việt, hoặc chuỗi rỗng nếu không rõ"
-}
-Nếu ảnh không chứa sinh vật nào có thể nhận diện được, trả về found=false và các trường còn lại là chuỗi rỗng.`;
-
-  const response = await fetch("https://api.anthropic.com/v1/messages", {
-    method:"POST",
-    headers:{ "Content-Type":"application/json" },
-    body: JSON.stringify({
-      model:"claude-sonnet-4-6",
-      max_tokens:1000,
-      messages:[{
-        role:"user",
-        content:[
-          { type:"image", source:{ type:"base64", media_type: mediaType, data: base64 } },
-          { type:"text", text: prompt }
-        ]
-      }]
-    })
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      const randomIndex = Math.floor(Math.random() * MOCK_SPECIES.length);
+      resolve(MOCK_SPECIES[randomIndex]);
+    }, 1500);
   });
-  const data = await response.json();
-  const textBlock = (data.content || []).find(b=>b.type==='text');
-  if(!textBlock) throw new Error('Không có phản hồi văn bản');
-  let clean = textBlock.text.trim().replace(/^```json/,'').replace(/^```/,'').replace(/```$/,'').trim();
-  return JSON.parse(clean);
 }
 
 function resetScan(){
@@ -640,7 +684,7 @@ function renderResult(info, fullImg, thumbImg){
       <button class="btn btn-ghost" onclick="resetScan()">Chụp sinh vật khác</button>
     </div>`;
   if(!already){
-    document.getElementById('addBtn').addEventListener('click', async ()=>{
+    document.getElementById('addBtn').addEventListener('click', ()=>{
       collection.push({
         id: Date.now().toString(36)+Math.random().toString(36).slice(2,7),
         image: thumbImg,
@@ -654,7 +698,7 @@ function renderResult(info, fullImg, thumbImg){
         conservationStatus: info.conservationStatus || '',
         capturedAt: new Date().toISOString()
       });
-      await saveCollection();
+      saveCollection();
       document.getElementById('addBtn').outerHTML = `<button class="btn btn-primary" disabled>✓ Đã thêm vào bộ sưu tập</button>`;
     });
   }
@@ -664,7 +708,7 @@ function escapeHtml(s){
   return String(s||'').replace(/[&<>"']/g, m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 }
 
-/* ---------- Collection rendering ---------- */
+/* Collection rendering */
 function renderCollection(){
   const grid = document.getElementById('collectionGrid');
   const empty = document.getElementById('collectionEmpty');
@@ -714,15 +758,15 @@ function openDetail(id){
 function closeModal(){ document.getElementById('modalBg').classList.remove('show'); }
 document.getElementById('modalBg').addEventListener('click', (e)=>{ if(e.target.id==='modalBg') closeModal(); });
 
-async function deleteItem(id){
+function deleteItem(id){
   collection = collection.filter(x=>x.id!==id);
-  await saveCollection();
+  saveCollection();
   closeModal();
   renderCollection();
   renderAchievements();
 }
 
-/* ---------- Achievements rendering ---------- */
+/* Achievements rendering */
 function renderAchievements(){
   const uc = uniqueCount(collection);
   const level = Math.floor(uc/3)+1;
@@ -747,9 +791,9 @@ function renderAchievements(){
   }).join('');
 }
 
-/* ---------- Init ---------- */
-(async function init(){
-  await loadCollection();
+/* Init */
+(function init(){
+  loadCollection();
   renderCollection();
   renderAchievements();
 })();
