@@ -31,9 +31,7 @@
     *{box-sizing:border-box;}
     html,body{margin:0;padding:0;}
     body{
-      background:
-        radial-gradient(1200px 600px at 50% -10%, #1c2e22 0%, var(--forest-deep) 55%),
-        var(--forest-deep);
+      background: radial-gradient(1200px 600px at 50% -10%, #1c2e22 0%, var(--forest-deep) 55%), var(--forest-deep);
       color:var(--parchment);
       font-family:'Inter',sans-serif;
       -webkit-font-smoothing:antialiased;
@@ -41,310 +39,135 @@
       overflow-x:hidden;
     }
     .app{
-      max-width:480px;
-      margin:0 auto;
-      min-height:100vh;
-      position:relative;
-      padding-bottom:92px;
-      background-image:
-        radial-gradient(circle at 15% 8%, rgba(138,169,104,0.07), transparent 40%),
-        radial-gradient(circle at 85% 20%, rgba(216,179,74,0.05), transparent 35%);
+      max-width:480px; margin:0 auto; min-height:100vh; position:relative; padding-bottom:92px;
+      background-image: radial-gradient(circle at 15% 8%, rgba(138,169,104,0.07), transparent 40%), radial-gradient(circle at 85% 20%, rgba(216,179,74,0.05), transparent 35%);
     }
-
-    /* Header */
     header.top{
-      padding:26px 22px 18px;
-      display:flex;
-      align-items:center;
-      gap:14px;
-      border-bottom:1px solid var(--line);
+      padding:26px 22px 18px; display:flex; align-items:center; gap:14px; border-bottom:1px solid var(--line);
     }
     .stamp-mark{
-      width:46px;height:46px;border-radius:50%;
-      border:1.5px solid var(--moss);
-      display:flex;align-items:center;justify-content:center;
-      flex-shrink:0;
-      position:relative;
-      background:radial-gradient(circle at 35% 30%, rgba(138,169,104,0.25), transparent 70%);
+      width:46px;height:46px;border-radius:50%; border:1.5px solid var(--moss); display:flex; align-items:center; justify-content:center;
+      flex-shrink:0; background:radial-gradient(circle at 35% 30%, rgba(138,169,104,0.25), transparent 70%);
     }
     .stamp-mark svg{width:24px;height:24px;}
-    .brand h1{
-      font-family:'Fraunces',serif;
-      font-weight:900;
-      font-size:26px;
-      letter-spacing:0.3px;
-      margin:0;
-      color:var(--parchment);
-    }
-    .brand p{
-      margin:2px 0 0;
-      font-size:12.5px;
-      letter-spacing:1.2px;
-      text-transform:uppercase;
-      color:var(--parchment-dim);
-    }
-
-    /* Tabs content */
+    .brand h1{ font-family:'Fraunces',serif; font-weight:900; font-size:26px; margin:0; color:var(--parchment); }
+    .brand p{ margin:2px 0 0; font-size:12.5px; letter-spacing:1.2px; text-transform:uppercase; color:var(--parchment-dim); }
     main{padding:22px 18px 10px; min-height:60vh;}
     .screen{display:none; animation:fadeUp .35s ease;}
     .screen.active{display:block;}
     @keyframes fadeUp{from{opacity:0; transform:translateY(10px);} to{opacity:1; transform:translateY(0);}}
-
-    /* Scan screen */
-    .scan-hero{
-      text-align:center;
-      padding:18px 6px 28px;
-    }
-    .scan-hero h2{
-      font-family:'Fraunces',serif;
-      font-weight:600;
-      font-size:21px;
-      margin:0 0 8px;
-    }
-    .scan-hero p{
-      color:var(--parchment-dim);
-      font-size:14px;
-      line-height:1.5;
-      margin:0 auto;
-      max-width:320px;
-    }
-    .shutter-wrap{
-      display:flex; flex-direction:column; align-items:center; gap:16px;
-      margin-top:26px;
-    }
+    .scan-hero{ text-align:center; padding:18px 6px 28px; }
+    .scan-hero h2{ font-family:'Fraunces',serif; font-weight:600; font-size:21px; margin:0 0 8px; }
+    .scan-hero p{ color:var(--parchment-dim); font-size:14px; line-height:1.5; margin:0 auto; max-width:320px; }
+    .shutter-wrap{ display:flex; flex-direction:column; align-items:center; gap:16px; margin-top:26px; }
     .shutter-btn{
-      width:118px;height:118px;border-radius:50%;
-      background:radial-gradient(circle at 35% 30%, #a3c47f, var(--moss) 55%, var(--moss-dim) 100%);
-      border:5px solid rgba(242,233,216,0.85);
-      box-shadow:0 12px 26px rgba(0,0,0,0.4), inset 0 0 0 1px rgba(0,0,0,0.15);
-      display:flex;align-items:center;justify-content:center;
-      cursor:pointer;
-      transition:transform .15s ease;
-      position:relative;
+      width:118px;height:118px;border-radius:50%; background:radial-gradient(circle at 35% 30%, #a3c47f, var(--moss) 55%, var(--moss-dim) 100%);
+      border:5px solid rgba(242,233,216,0.85); box-shadow:0 12px 26px rgba(0,0,0,0.4); display:flex; align-items:center; justify-content:center;
+      cursor:pointer; transition:transform .15s ease; position:relative;
     }
     .shutter-btn:active{transform:scale(0.93);}
     .shutter-btn svg{width:42px;height:42px;color:var(--forest-deep);}
-    .shutter-pulse{
-      position:absolute; inset:-5px; border-radius:50%;
-      border:2px solid var(--moss);
-      opacity:0; 
-    }
+    .shutter-pulse{ position:absolute; inset:-5px; border-radius:50%; border:2px solid var(--moss); opacity:0; }
     .shutter-btn.pulsing .shutter-pulse{ animation:pulseRing 1.1s ease-out infinite; }
-    @keyframes pulseRing{
-      0%{opacity:.6; transform:scale(1);}
-      100%{opacity:0; transform:scale(1.4);}
-    }
-    .gallery-link{
-      background:none;border:none;color:var(--parchment-dim);
-      font-family:'Inter',sans-serif; font-size:13.5px;
-      text-decoration:underline; text-underline-offset:3px;
-      cursor:pointer; padding:6px;
-    }
-    .gallery-link:hover{color:var(--parchment);}
-
+    @keyframes pulseRing{ 0%{opacity:.6; transform:scale(1);} 100%{opacity:0; transform:scale(1.4);} }
+    .gallery-link{ background:none;border:none;color:var(--parchment-dim); font-family:'Inter',sans-serif; font-size:13.5px; text-decoration:underline; cursor:pointer; padding:6px; }
     .preview-frame{
-      border-radius:18px;overflow:hidden;border:1px solid var(--line);
-      background:var(--canopy); margin-bottom:16px;
-      aspect-ratio:1/1; display:flex;align-items:center;justify-content:center;
-      position:relative;
+      border-radius:18px; overflow:hidden; border:1px solid var(--line); background:var(--canopy); margin-bottom:16px;
+      aspect-ratio:1/1; display:flex; align-items:center; justify-content:center; position:relative;
     }
-    .preview-frame img{width:100%;height:100%;object-fit:cover;display:block;}
+    .preview-frame img{width:100%; height:100%; object-fit:cover; display:block;}
     .scan-overlay{
-      position:absolute;inset:0;
-      background:linear-gradient(180deg, rgba(20,33,26,0.1), rgba(20,33,26,0.75));
-      display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;
+      position:absolute; inset:0; background:linear-gradient(180deg, rgba(20,33,26,0.1), rgba(20,33,26,0.75));
+      display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;
     }
     .scan-line{
-      position:absolute; left:6%; right:6%; height:2px;
-      background:linear-gradient(90deg, transparent, var(--moss), transparent);
-      box-shadow:0 0 10px var(--moss);
-      animation:scanMove 1.6s ease-in-out infinite;
+      position:absolute; left:6%; right:6%; height:2px; background:linear-gradient(90deg, transparent, var(--moss), transparent);
+      box-shadow:0 0 10px var(--moss); animation:scanMove 1.6s ease-in-out infinite;
     }
-    @keyframes scanMove{
-      0%{top:8%;} 50%{top:92%;} 100%{top:8%;}
-    }
+    @keyframes scanMove{ 0%{top:8%;} 50%{top:92%;} 100%{top:8%;} }
     .scan-status{
-      font-size:13px; letter-spacing:0.6px; text-transform:uppercase;
-      color:var(--parchment); background:rgba(20,33,26,0.6);
-      padding:6px 14px; border-radius:20px; border:1px solid var(--line);
+      font-size:13px; letter-spacing:0.6px; text-transform:uppercase; color:var(--parchment);
+      background:rgba(20,33,26,0.6); padding:6px 14px; border-radius:20px; border:1px solid var(--line);
     }
-
-    /* Specimen card */
     .specimen{
-      background:linear-gradient(180deg, var(--canopy-2), var(--canopy));
-      border:1px solid var(--line);
-      border-radius:20px;
-      padding:20px 20px 22px;
-      position:relative;
-      box-shadow:var(--shadow);
-      margin-bottom:18px;
+      background:linear-gradient(180deg, var(--canopy-2), var(--canopy)); border:1px solid var(--line);
+      border-radius:20px; padding:20px 20px 22px; position:relative; box-shadow:var(--shadow); margin-bottom:18px;
       animation:cardIn .45s cubic-bezier(.2,.8,.2,1);
     }
     @keyframes cardIn{from{opacity:0; transform:translateY(16px) scale(.98);} to{opacity:1; transform:none;}}
-    .specimen::after{
-      content:"";
-      position:absolute; left:16px; right:16px; bottom:-1px; height:10px;
-      background-image: radial-gradient(circle, var(--forest-deep) 4.5px, transparent 4.6px);
-      background-size:16px 16px;
-      background-position:0 0;
-      background-repeat:repeat-x;
-    }
     .seal{
-      position:absolute; top:16px; right:16px;
-      width:52px;height:52px;border-radius:50%;
-      display:flex;align-items:center;justify-content:center;
-      font-size:9.5px; text-transform:uppercase; letter-spacing:0.5px; text-align:center;
-      font-weight:700; color:var(--forest-deep);
-      border:2px dashed rgba(20,33,26,0.35);
+      position:absolute; top:16px; right:16px; width:52px; height:52px; border-radius:50%; display:flex; align-items:center; justify-content:center;
+      font-size:9.5px; text-transform:uppercase; letter-spacing:0.5px; font-weight:700; color:var(--forest-deep); border:2px dashed rgba(20,33,26,0.35);
     }
-    .specimen-photo{
-      width:96px;height:96px;border-radius:12px;object-fit:cover;
-      border:1px solid var(--line);
-      float:left; margin:0 14px 8px 0;
-    }
-    .specimen h3{
-      font-family:'Fraunces',serif; font-weight:700; font-size:20px;
-      margin:0 0 2px; padding-right:60px;
-    }
-    .specimen .sci{
-      font-family:'Fraunces',serif; font-style:italic; font-weight:500;
-      color:var(--parchment-dim); font-size:13.5px; margin:0 0 10px;
-    }
+    .specimen-photo{ width:96px; height:96px; border-radius:12px; object-fit:cover; border:1px solid var(--line); float:left; margin:0 14px 8px 0; }
+    .specimen h3{ font-family:'Fraunces',serif; font-weight:700; font-size:20px; margin:0 0 2px; padding-right:60px; }
+    .specimen .sci{ font-family:'Fraunces',serif; font-style:italic; font-weight:500; color:var(--parchment-dim); font-size:13.5px; margin:0 0 10px; }
     .tag-row{display:flex; gap:6px; flex-wrap:wrap; margin-bottom:4px;}
-    .tag{
-      font-size:11px; padding:3px 9px; border-radius:20px;
-      background:rgba(242,233,216,0.08); border:1px solid var(--line);
-      color:var(--parchment-dim); letter-spacing:0.3px;
-    }
+    .tag{ font-size:11px; padding:3px 9px; border-radius:20px; background:rgba(242,233,216,0.08); border:1px solid var(--line); color:var(--parchment-dim); }
     .clearfix{clear:both;}
     .specimen .desc{font-size:14px; line-height:1.6; color:var(--parchment); margin:12px 0 10px;}
     .specimen .field{font-size:13px; line-height:1.5; margin:6px 0; color:var(--parchment-dim);}
     .specimen .field b{color:var(--parchment); font-weight:600;}
-    .funfact{
-      margin-top:12px; padding:10px 12px; border-radius:10px;
-      background:rgba(138,169,104,0.1); border:1px solid rgba(138,169,104,0.25);
-      font-size:13px; line-height:1.55;
-    }
+    .funfact{ margin-top:12px; padding:10px 12px; border-radius:10px; background:rgba(138,169,104,0.1); border:1px solid rgba(138,169,104,0.25); font-size:13px; line-height:1.55; }
     .funfact b{color:var(--moss);}
-
     .btn{
-      width:100%; padding:13px; border-radius:12px; border:none;
-      font-family:'Inter',sans-serif; font-weight:600; font-size:14.5px;
-      cursor:pointer; margin-top:14px;
-      display:flex; align-items:center; justify-content:center; gap:8px;
+      width:100%; padding:13px; border-radius:12px; border:none; font-family:'Inter',sans-serif; font-weight:600; font-size:14.5px;
+      cursor:pointer; margin-top:14px; display:flex; align-items:center; justify-content:center; gap:8px;
     }
     .btn-primary{background:var(--moss); color:var(--forest-deep);}
-    .btn-primary:active{transform:scale(0.98);}
     .btn-primary:disabled{background:var(--canopy-2); color:var(--parchment-dim); cursor:default;}
-    .btn-ghost{
-      background:transparent; border:1px solid var(--line); color:var(--parchment-dim);
-    }
-
-    .empty-note{
-      text-align:center; padding:30px 18px; color:var(--parchment-dim); font-size:14px;
-    }
-
-    /* Collection grid */
-    .section-title{
-      font-family:'Fraunces',serif; font-weight:700; font-size:19px; margin:2px 0 4px;
-    }
+    .btn-ghost{background:transparent; border:1px solid var(--line); color:var(--parchment-dim);}
+    .empty-note{text-align:center; padding:30px 18px; color:var(--parchment-dim); font-size:14px;}
+    .section-title{ font-family:'Fraunces',serif; font-weight:700; font-size:19px; margin:2px 0 4px; }
     .section-sub{color:var(--parchment-dim); font-size:13px; margin:0 0 16px;}
     .stat-row{display:flex; gap:10px; margin-bottom:18px;}
-    .stat-box{
-      flex:1; background:var(--canopy); border:1px solid var(--line); border-radius:14px;
-      padding:12px 10px; text-align:center;
-    }
+    .stat-box{ flex:1; background:var(--canopy); border:1px solid var(--line); border-radius:14px; padding:12px 10px; text-align:center; }
     .stat-box .num{font-family:'Fraunces',serif; font-weight:900; font-size:22px; color:var(--moss);}
     .stat-box .lab{font-size:10.5px; text-transform:uppercase; letter-spacing:0.5px; color:var(--parchment-dim); margin-top:2px;}
-
     .grid{display:grid; grid-template-columns:repeat(3, 1fr); gap:10px;}
-    .grid-card{
-      aspect-ratio:3/4; border-radius:14px; overflow:hidden; position:relative;
-      border:1px solid var(--line); cursor:pointer; background:var(--canopy);
-    }
+    .grid-card{ aspect-ratio:3/4; border-radius:14px; overflow:hidden; position:relative; border:1px solid var(--line); cursor:pointer; background:var(--canopy); }
     .grid-card img{width:100%;height:100%;object-fit:cover; display:block;}
     .grid-card .gname{
-      position:absolute; left:0; right:0; bottom:0; padding:6px 6px 5px;
-      font-size:10.5px; font-weight:600; text-align:center; line-height:1.2;
+      position:absolute; left:0; right:0; bottom:0; padding:6px 6px 5px; font-size:10.5px; font-weight:600; text-align:center;
       background:linear-gradient(0deg, rgba(20,33,26,0.9), transparent);
     }
-    .grid-card .rdot{
-      position:absolute; top:6px; right:6px; width:9px;height:9px;border-radius:50%;
-      box-shadow:0 0 6px rgba(0,0,0,0.5);
-    }
-
-    /* Achievements */
-    .level-card{
-      background:linear-gradient(135deg, var(--canopy-2), var(--canopy));
-      border:1px solid var(--line); border-radius:16px; padding:16px 18px; margin-bottom:20px;
-    }
+    .grid-card .rdot{ position:absolute; top:6px; right:6px; width:9px; height:9px; border-radius:50%; box-shadow:0 0 6px rgba(0,0,0,0.5); }
+    .level-card{ background:linear-gradient(135deg, var(--canopy-2), var(--canopy)); border:1px solid var(--line); border-radius:16px; padding:16px 18px; margin-bottom:20px; }
     .level-top{display:flex; justify-content:space-between; align-items:baseline; margin-bottom:8px;}
     .level-top .lvl{font-family:'Fraunces',serif; font-weight:900; font-size:20px; color:var(--gold);}
     .level-top .lvltxt{font-size:12px; color:var(--parchment-dim);}
     .xp-bar{height:8px; border-radius:6px; background:rgba(242,233,216,0.1); overflow:hidden;}
     .xp-fill{height:100%; background:linear-gradient(90deg, var(--moss), var(--gold)); border-radius:6px; transition:width .5s ease;}
-
-    .ach{
-      display:flex; gap:14px; align-items:center;
-      background:var(--canopy); border:1px solid var(--line); border-radius:14px;
-      padding:13px 14px; margin-bottom:10px;
-    }
+    .ach{ display:flex; gap:14px; align-items:center; background:var(--canopy); border:1px solid var(--line); border-radius:14px; padding:13px 14px; margin-bottom:10px; }
     .ach.locked{opacity:0.45;}
-    .ach-icon{
-      width:42px;height:42px;border-radius:50%; flex-shrink:0;
-      display:flex;align-items:center;justify-content:center; font-size:19px;
-      background:rgba(138,169,104,0.15); border:1px solid rgba(138,169,104,0.3);
-    }
+    .ach-icon{ width:42px;height:42px;border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:19px; background:rgba(138,169,104,0.15); border:1px solid rgba(138,169,104,0.3); }
     .ach.locked .ach-icon{background:rgba(242,233,216,0.05); border-color:var(--line);}
     .ach-body{flex:1;}
     .ach-body .aname{font-weight:600; font-size:14px; margin-bottom:2px;}
     .ach-body .adesc{font-size:12px; color:var(--parchment-dim); margin-bottom:6px;}
     .mini-bar{height:5px; border-radius:4px; background:rgba(242,233,216,0.1); overflow:hidden;}
     .mini-fill{height:100%; background:var(--moss); border-radius:4px;}
-
-    /* Bottom nav */
     nav.bottom{
-      position:fixed; bottom:0; left:50%; transform:translateX(-50%);
-      width:100%; max-width:480px;
-      background:rgba(20,33,26,0.92); backdrop-filter:blur(10px);
-      border-top:1px solid var(--line);
-      display:flex; padding:10px 12px calc(10px + env(safe-area-inset-bottom));
-      gap:6px;
-      z-index:50;
+      position:fixed; bottom:0; left:50%; transform:translateX(-50%); width:100%; max-width:480px; background:rgba(20,33,26,0.92);
+      backdrop-filter:blur(10px); border-top:1px solid var(--line); display:flex; padding:10px 12px calc(10px + env(safe-area-inset-bottom));
+      gap:6px; z-index:50;
     }
     .nav-btn{
-      flex:1; background:none; border:none; color:var(--parchment-dim);
-      display:flex; flex-direction:column; align-items:center; gap:4px;
-      font-family:'Inter',sans-serif; font-size:10.5px; font-weight:600;
-      letter-spacing:0.3px; padding:6px 4px; border-radius:10px; cursor:pointer;
+      flex:1; background:none; border:none; color:var(--parchment-dim); display:flex; flex-direction:column; align-items:center; gap:4px;
+      font-family:'Inter',sans-serif; font-size:10.5px; font-weight:600; letter-spacing:0.3px; padding:6px 4px; border-radius:10px; cursor:pointer;
     }
     .nav-btn svg{width:21px;height:21px;}
     .nav-btn.active{color:var(--moss); background:rgba(138,169,104,0.1);}
-
-    /* Modal */
-    .modal-bg{
-      position:fixed; inset:0; background:rgba(10,16,12,0.72);
-      display:none; align-items:flex-end; justify-content:center; z-index:100;
-    }
+    .modal-bg{ position:fixed; inset:0; background:rgba(10,16,12,0.72); display:none; align-items:flex-end; justify-content:center; z-index:100; }
     .modal-bg.show{display:flex;}
-    .modal-sheet{
-      width:100%; max-width:480px; max-height:85vh; overflow-y:auto;
-      background:var(--canopy); border-radius:20px 20px 0 0;
-      padding:20px 20px 30px; animation:sheetUp .3s ease;
-    }
+    .modal-sheet{ width:100%; max-width:480px; max-height:85vh; overflow-y:auto; background:var(--canopy); border-radius:20px 20px 0 0; padding:20px 20px 30px; animation:sheetUp .3s ease; }
     @keyframes sheetUp{from{transform:translateY(40px); opacity:0;} to{transform:translateY(0); opacity:1;}}
-    .modal-close{
-      display:block; margin:0 auto 12px; width:40px; height:4px; border-radius:4px;
-      background:var(--line); border:none;
-    }
+    .modal-close{ display:block; margin:0 auto 12px; width:40px; height:4px; border-radius:4px; background:var(--line); border:none; }
     .del-btn{color:#d17a5a; background:transparent; border:1px solid rgba(209,122,90,0.35);}
-
-    ::-webkit-scrollbar{width:0;height:0;}
   </style>
 </head>
 <body>
 <div class="app">
-
   <header class="top">
     <div class="stamp-mark">
       <svg viewBox="0 0 24 24" fill="none" stroke="#8AA968" stroke-width="1.6"><path d="M12 3c3 3 5 6 5 9a5 5 0 0 1-10 0c0-3 2-6 5-9Z"/><path d="M12 12v9" stroke-linecap="round"/></svg>
@@ -356,7 +179,6 @@
   </header>
 
   <main>
-    <!-- SCAN SCREEN -->
     <section class="screen active" id="screen-scan">
       <div id="scan-idle">
         <div class="scan-hero">
@@ -377,7 +199,7 @@
           <img id="previewImg" src="" alt="">
           <div class="scan-overlay">
             <div class="scan-line"></div>
-            <div class="scan-status" id="scanStatusText">Đang phân tích sinh vật…</div>
+            <div class="scan-status" id="scanStatusText">AI đang phân tích sinh vật…</div>
           </div>
         </div>
       </div>
@@ -385,7 +207,6 @@
       <div id="scan-result"></div>
     </section>
 
-    <!-- COLLECTION SCREEN -->
     <section class="screen" id="screen-collection">
       <div class="section-title">Bộ sưu tập</div>
       <div class="section-sub">Toàn bộ sinh vật bạn đã ghi lại trong nhật ký.</div>
@@ -398,7 +219,6 @@
       <div class="empty-note" id="collectionEmpty" style="display:none;">Chưa có sinh vật nào. Hãy bắt đầu chụp ảnh ở tab "Chụp"!</div>
     </section>
 
-    <!-- ACHIEVEMENTS SCREEN -->
     <section class="screen" id="screen-achievements">
       <div class="section-title">Thành tựu</div>
       <div class="section-sub">Mở khoá huy hiệu khi khám phá thêm sinh vật mới.</div>
@@ -437,6 +257,8 @@
 </div>
 
 <script>
+const GEMINI_API_KEY = "AQ.Ab8RN6JTBNeqtwmPWznLEiuKp23vdzC1gOL75XEKZ6Kvv7k3Nw";
+
 const RARITY_COLOR = {
   'Phổ biến':'#8AA968',
   'Không thường gặp':'#C98A3A',
@@ -467,83 +289,12 @@ const ACHIEVEMENTS = [
   {id:'legendary', name:'Huyền Thoại Sống', desc:'Sưu tầm 1 loài Huyền thoại', target:1, icon:'⭐', calc:(c)=>rarityCount(c,'Huyền thoại')},
 ];
 
-/* Danh sách sinh vật mô phỏng phong phú */
-const MOCK_SPECIES = [
-  {
-    found: true,
-    commonName: "Sóc Đất Berdmore",
-    scientificName: "Menetes berdmorei",
-    category: "Thú",
-    rarity: "Phổ biến",
-    habitat: "Rừng thứ sinh, bìa rừng, vườn cây ăn quả",
-    description: "Loài sóc nhỏ có các sọc đen trắng chạy dọc lưng, thường kiếm ăn dưới mặt đất.",
-    funFact: "Chúng có túi má đặc biệt dùng để tích trữ thức ăn mang về tổ.",
-    conservationStatus: "Ít quan tâm (LC)"
-  },
-  {
-    found: true,
-    commonName: "Chim Sâu Ngực Đỏ",
-    scientificName: "Dicaeum cruentatum",
-    category: "Chim",
-    rarity: "Phổ biến",
-    habitat: "Tán cây bụi, vườn hoa đô thị và rừng ngập mặn",
-    description: "Loài chim nhỏ linh hoạt, con trống có vệt lông đỏ rực rỡ kéo dài từ đỉnh đầu xuống lưng.",
-    funFact: "Thức ăn ưa thích của chúng là quả tầm gửi và mật hoa nhiệt đới.",
-    conservationStatus: "Ít quan tâm (LC)"
-  },
-  {
-    found: true,
-    commonName: "Tắc Kè Hoa Calotes",
-    scientificName: "Calotes versicolor",
-    category: "Bò sát",
-    rarity: "Không thường gặp",
-    habitat: "Bụi rậm, hàng rào, cành cây thấp nhiều ánh nắng",
-    description: "Loài thằn lằn có khả năng đổi màu sắc cơ thể linh hoạt từ nâu sang đỏ cam khi giao phối.",
-    funFact: "Con đực thường gật đầu liên tục để phô trương sức mạnh và bảo vệ lãnh thổ.",
-    conservationStatus: "Ít quan tâm (LC)"
-  },
-  {
-    found: true,
-    commonName: "Bướm Phượng Cánh Chim",
-    scientificName: "Troides helena",
-    category: "Côn trùng",
-    rarity: "Hiếm",
-    habitat: "Tán rừng nhiệt đới mưa ẩm ẩm ướt",
-    description: "Loài bướm cỡ lớn tuyệt đẹp với cánh trước đen tuyền và cánh sau màu vàng kim óng ánh.",
-    funFact: "Sải cánh của loài bướm này có thể dài tới gần 17 cm.",
-    conservationStatus: "Sắp bị đe dọa (NT)"
-  },
-  {
-    found: true,
-    commonName: "Voọc Chà Vá Chân Nâu",
-    scientificName: "Pygathrix nemaeus",
-    category: "Thú",
-    rarity: "Huyền thoại",
-    habitat: "Rừng nguyên sinh thường xanh trên núi cao",
-    description: "Được mệnh danh là 'Nữ hoàng của các loài linh trưởng' với bộ lông 5 màu lộng lẫy đặc trưng.",
-    funFact: "Dạ dày của chúng có cấu tạo đặc biệt giúp tiêu hóa lượng lớn lá cây chứa nhiều xenluloza.",
-    conservationStatus: "Cực kỳ nguy cấp (CR)"
-  },
-  {
-    found: true,
-    commonName: "Ếch Cây Mắt Đỏ",
-    scientificName: "Agalychnis callidryas",
-    category: "Lưỡng cư",
-    rarity: "Hiếm",
-    habitat: "Tán lá cây rừng nhiệt đới gần nguồn nước",
-    description: "Màu da xanh ngọc bích nổi bật cùng đôi mắt đỏ rực giúp xua đuổi kẻ săn mồi.",
-    funFact: "Đôi mắt đỏ chói lòa của chúng là vũ khí tự vệ khiến kẻ thù bị giật mình trong chốc lát.",
-    conservationStatus: "Ít quan tâm (LC)"
-  }
-];
-
 function uniqueCount(c){ return new Set(c.map(x=>x.scientificName.toLowerCase())).size; }
 function catCount(c,cat){ return new Set(c.filter(x=>x.category===cat).map(x=>x.scientificName.toLowerCase())).size; }
 function rarityCount(c,r){ return new Set(c.filter(x=>x.rarity===r).map(x=>x.scientificName.toLowerCase())).size; }
 
 let collection = [];
 
-/* Sử dụng LocalStorage chuẩn trình duyệt */
 function loadCollection(){
   try{
     const res = localStorage.getItem('creamal_collection');
@@ -561,7 +312,6 @@ function saveCollection(){
   }
 }
 
-/* Tabs */
 document.querySelectorAll('.nav-btn').forEach(btn=>{
   btn.addEventListener('click', ()=>{
     document.querySelectorAll('.nav-btn').forEach(b=>b.classList.remove('active'));
@@ -573,7 +323,6 @@ document.querySelectorAll('.nav-btn').forEach(btn=>{
   });
 });
 
-/* Image capture */
 const shutterBtn = document.getElementById('shutterBtn');
 const cameraInput = document.getElementById('cameraInput');
 const galleryInput = document.getElementById('galleryInput');
@@ -582,21 +331,30 @@ document.getElementById('galleryBtn').addEventListener('click', ()=> galleryInpu
 cameraInput.addEventListener('change', (e)=> handleFile(e.target.files[0]));
 galleryInput.addEventListener('change', (e)=> handleFile(e.target.files[0]));
 
-function resizeImage(file, maxDim, quality){
+function readFileToDataUrl(file){
   return new Promise((resolve, reject)=>{
     const reader = new FileReader();
-    reader.onload = (ev)=>{
+    reader.onload = (e)=> resolve(e.target.result);
+    reader.onerror = reject;
+    reader.readAsDataURL(file);
+  });
+}
+
+function compressImage(file, maxDim = 800, quality = 0.8) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+    reader.onload = (ev) => {
       const img = new Image();
-      img.onload = ()=>{
+      img.onload = () => {
         let w = img.width, h = img.height;
-        if(w > h && w > maxDim){ h = Math.round(h*maxDim/w); w = maxDim; }
-        else if(h >= w && h > maxDim){ w = Math.round(w*maxDim/h); h = maxDim; }
+        if (w > h && w > maxDim) { h = Math.round((h * maxDim) / w); w = maxDim; }
+        else if (h >= w && h > maxDim) { w = Math.round((w * maxDim) / h); h = maxDim; }
         const canvas = document.createElement('canvas');
         canvas.width = w; canvas.height = h;
         const ctx = canvas.getContext('2d');
         ctx.drawImage(img, 0, 0, w, h);
         const dataUrl = canvas.toDataURL('image/jpeg', quality);
-        resolve({ dataUrl, base64: dataUrl.split(',')[1], mediaType:'image/jpeg' });
+        resolve({ dataUrl, base64: dataUrl.split(',')[1] });
       };
       img.onerror = reject;
       img.src = ev.target.result;
@@ -614,15 +372,14 @@ async function handleFile(file){
   shutterBtn.classList.add('pulsing');
 
   try{
-    const full = await resizeImage(file, 900, 0.82);
-    const thumb = await resizeImage(file, 340, 0.7);
-    document.getElementById('previewImg').src = full.dataUrl;
-    document.getElementById('scanStatusText').textContent = 'Đang phân tích sinh vật…';
+    const compressed = await compressImage(file);
+    document.getElementById('previewImg').src = compressed.dataUrl;
+    document.getElementById('scanStatusText').textContent = 'AI đang nhận diện sinh vật…';
 
-    const info = await identifySpecies(full.base64, full.mediaType);
+    const info = await identifySpecies(compressed.base64, 'image/jpeg');
     document.getElementById('scan-working').style.display = 'none';
     shutterBtn.classList.remove('pulsing');
-    renderResult(info, full.dataUrl, thumb.dataUrl);
+    renderResult(info, compressed.dataUrl);
   }catch(err){
     console.error(err);
     document.getElementById('scan-working').style.display = 'none';
@@ -635,18 +392,62 @@ async function handleFile(file){
   galleryInput.value = '';
 }
 
-/* Quét giả lập thông minh */
-async function identifySpecies(base64, mediaType){
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      const randomIndex = Math.floor(Math.random() * MOCK_SPECIES.length);
-      resolve(MOCK_SPECIES[randomIndex]);
-    }, 1500);
+async function identifySpecies(base64Data, mimeType = "image/jpeg") {
+  const prompt = `Bạn là trợ lý nhận diện sinh vật thông minh cho ứng dụng sổ tay thiên nhiên tên "Creamal".
+Hãy phân tích kỹ hình ảnh và xác định chính xác nhất loài động vật, thú cưng, chim, côn trùng, bò sát, cá hoặc sinh vật xuất hiện trong ảnh.
+
+BẮT BUỘC chỉ trả về DUY NHẤT một chuỗi JSON thuần túy (không bọc trong \`\`\`json hoặc markdown nào khác), với cấu trúc chính xác:
+{
+  "found": true,
+  "commonName": "Tên tiếng Việt chuẩn xác của sinh vật (ví dụ: Mèo mướp, Mèo Ta, Chó Golden, Chim Bồ Câu...)",
+  "scientificName": "Tên danh pháp khoa học hai phần (ví dụ: Felis catus, Canis lupus familiaris...)",
+  "category": "Một trong: Thú, Chim, Bò sát, Lưỡng cư, Côn trùng, Cá, Nhện, Khác",
+  "rarity": "Một trong: Phổ biến, Không thường gặp, Hiếm, Huyền thoại",
+  "habitat": "Nơi thường sống hoặc môi trường sống ngắn gọn bằng tiếng Việt",
+  "description": "Mô tả ngắn gọn đặc điểm nhận dạng 1-2 câu tiếng Việt",
+  "funFact": "Một thông tin thú vị ngắn về loài này",
+  "conservationStatus": "Tình trạng bảo tồn ngắn gọn (ví dụ: Thuần hóa, Ít quan tâm, Nguy cấp...)"
+}
+Nếu trong ảnh hoàn toàn không tìm thấy sinh vật hoặc con vật nào, trả về {"found": false}.`;
+
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${GEMINI_API_KEY}`;
+
+  const payload = {
+    contents: [{
+      parts: [
+        { text: prompt },
+        {
+          inline_data: {
+            mime_type: mimeType,
+            data: base64Data
+          }
+        }
+      ]
+    }],
+    generationConfig: {
+      temperature: 0.2,
+      response_mime_type: "application/json"
+    }
+  };
+
+  const response = await fetch(url, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(payload)
   });
+
+  if (!response.ok) {
+    throw new Error("Lỗi kết nối Gemini API");
+  }
+
+  const result = await response.json();
+  const rawText = result.candidates[0].content.parts[0].text;
+  return JSON.parse(rawText.trim());
 }
 
 function resetScan(){
   document.getElementById('scan-idle').style.display = 'block';
+  document.getElementById('scan-working').style.display = 'none';
   document.getElementById('scan-result').innerHTML = '';
 }
 
@@ -654,7 +455,7 @@ function isCollected(sci){
   return collection.some(x=>x.scientificName.toLowerCase() === sci.toLowerCase());
 }
 
-function renderResult(info, fullImg, thumbImg){
+function renderResult(info, imgUrl){
   const box = document.getElementById('scan-result');
   if(!info.found){
     box.innerHTML = `
@@ -662,12 +463,13 @@ function renderResult(info, fullImg, thumbImg){
       <button class="btn btn-ghost" onclick="resetScan()">Chụp lại</button>`;
     return;
   }
+
   const color = RARITY_COLOR[info.rarity] || RARITY_COLOR['Phổ biến'];
   const already = isCollected(info.scientificName);
   box.innerHTML = `
     <div class="specimen">
       <div class="seal" style="border-color:${color}44; background:${color}22; color:${color};">${RARITY_LABEL_SHORT[info.rarity]||info.rarity}</div>
-      <img class="specimen-photo" src="${thumbImg}">
+      <img class="specimen-photo" src="${imgUrl}">
       <h3>${escapeHtml(info.commonName)}</h3>
       <p class="sci">${escapeHtml(info.scientificName)}</p>
       <div class="tag-row">
@@ -687,7 +489,7 @@ function renderResult(info, fullImg, thumbImg){
     document.getElementById('addBtn').addEventListener('click', ()=>{
       collection.push({
         id: Date.now().toString(36)+Math.random().toString(36).slice(2,7),
-        image: thumbImg,
+        image: imgUrl,
         commonName: info.commonName,
         scientificName: info.scientificName,
         category: info.category,
@@ -708,7 +510,6 @@ function escapeHtml(s){
   return String(s||'').replace(/[&<>"']/g, m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
 }
 
-/* Collection rendering */
 function renderCollection(){
   const grid = document.getElementById('collectionGrid');
   const empty = document.getElementById('collectionEmpty');
@@ -766,7 +567,6 @@ function deleteItem(id){
   renderAchievements();
 }
 
-/* Achievements rendering */
 function renderAchievements(){
   const uc = uniqueCount(collection);
   const level = Math.floor(uc/3)+1;
@@ -791,7 +591,6 @@ function renderAchievements(){
   }).join('');
 }
 
-/* Init */
 (function init(){
   loadCollection();
   renderCollection();
